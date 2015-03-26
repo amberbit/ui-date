@@ -102,6 +102,9 @@ angular.module('ui.date', [])
 .factory('uiDateConverter', ['uiDateFormatConfig', function(uiDateFormatConfig){
 
     function dateToString(dateFormat, value){
+        if (angular.isString(value)) {
+            return value;
+        }
         dateFormat = dateFormat || uiDateFormatConfig;
         if (value) {
             if (dateFormat) {
